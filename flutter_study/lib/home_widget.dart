@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'placeholder_widget.dart';
 import 'counter_widget.dart';
+import 'main_list_widget.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,9 +14,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    MyHomePage(title: 'Flutter Demo Home Page'),
-    PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
+    MenuListWidget(),
+    PlaceholderWidget(Colors.green, "Profile"),
+    MyHomePage()
   ];
 
   void onTabTapped(int index) {
@@ -42,7 +43,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              title: Text('Profile')
+              title: Text('Counter')
           )
         ],
       ),

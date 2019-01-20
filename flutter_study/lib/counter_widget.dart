@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+
+  MyHomePage();
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Stateful Counter'),
       ),
       body: Center(
         child: Column(

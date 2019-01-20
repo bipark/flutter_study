@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 
 class PlaceholderWidget extends StatelessWidget {
   final Color color;
+  final String title;
 
-  PlaceholderWidget(this.color);
+  PlaceholderWidget(this.color, this.title);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Container(
+        color: color,
+      )
     );
   }
+
 }
