@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'get_list_and_show.dart';
-
+import 'youtube_player.dart';
 
 class MenuListWidget extends StatelessWidget {
 
@@ -26,7 +26,13 @@ class MenuListWidget extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.photo_album),
-              title: Text('Album'),
+              title: Text('유튜브 플레이'),
+              onTap: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => YoutubePlayer()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.phone),
