@@ -20,14 +20,16 @@ class _GetListAndShow extends State<GetListAndShow> {
       setState(() {
         var body = json.decode(response.body);
         curation = body['curations'];
-        print(curation);
       });
     });
   }
 
-  _getImage(datas) {
-    print(datas);
-    return "https://i.ytimg.com/vi/L1W3ez9LF9M/mqdefault.jpg";
+  _getImage(curation) {
+    var details = curation['details'][0];
+    var datas = json.decode(utf8.decode(base64.decode(details['datas'])));
+//?    print(datas);
+    var snippet = datas['snippet']['thumbnails']['default'];
+    return snippet['url'] ?? "https://i.ytimg.com/vi/L1W3ez9LF9M/mqdefault.jpg";
   }
 
   void initState() {
@@ -53,7 +55,7 @@ class _GetListAndShow extends State<GetListAndShow> {
                 title: Text(curation[index]['title']),
                 subtitle: Text(curation[index]['description'] ?? ''),
                 leading: new Image.network(
-                  _getImage(curation[index]['datas']),
+                  _getImage(curation[index]),
                   fit: BoxFit.cover,
                   height: 90.0,
                   width: 90.0,
